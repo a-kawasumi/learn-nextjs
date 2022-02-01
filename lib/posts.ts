@@ -11,6 +11,11 @@ export interface PostData {
 }
 
 export function getSortedPostsData(): PostData[] {
+  /**
+   *  外部apiを使う場合（fetchはclient, serverどちらでもpolyfillされて使える）
+   *  const res = await fetch('..')
+   *  return res.json()
+   */
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData: PostData[] = fileNames.map((fileName) => {
