@@ -8,6 +8,7 @@ import { getSortedPostsData, PostData } from "~/lib/posts";
 import utilStyles from "~/styles/utils.module.css";
 import Date from "~/components/date";
 import Profile from "~/components/profile";
+import "tailwindcss/tailwind.css";
 
 interface Props {
   allPostsData: PostData[];
