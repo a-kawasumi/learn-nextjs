@@ -1,4 +1,4 @@
-import styles from "./index.module.css";
+import styles from "~/components/alert/index.module.css";
 import cn from "classnames";
 
 interface Props {

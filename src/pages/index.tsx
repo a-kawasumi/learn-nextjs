@@ -1,13 +1,13 @@
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import styles from "~/styles/Home.module.css";
 import Link from "next/link";
-import Layout, { siteTitle } from "../components/layout";
-import { getSortedPostsData, PostData } from "../lib/posts";
-import utilStyles from "../styles/utils.module.css";
-import Date from "../components/date";
-import Profile from "../components/profile";
+import Layout, { siteTitle } from "~/components/layout";
+import { getSortedPostsData, PostData } from "~/lib/posts";
+import utilStyles from "~/styles/utils.module.css";
+import Date from "~/components/date";
+import Profile from "~/components/profile";
 
 interface Props {
   allPostsData: PostData[];

@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./index.module.css";
-import utilStyles from "../../styles/utils.module.css";
+import styles from "~/components/layout/index.module.css";
+import utilStyles from "~/styles/utils.module.css";
 
 const name = "My Name";
 export const siteTitle = "Next.js Sample Website";

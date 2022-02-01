@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { ProfileData } from "../../pages/api/profile-data";
+import { ProfileData } from "~/pages/api/profile-data";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
