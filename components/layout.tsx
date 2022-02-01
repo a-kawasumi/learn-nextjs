@@ -1,7 +1,15 @@
 import styles from "./layout.module.css";
 
+interface PageProps {
+  title: string;
+  logData: {
+    screenName: string;
+  };
+}
+
 interface Props {
-  children: any;
+  children?: React.ReactNode;
+  pageProps: PageProps;
 }
 
 export default function Layout(props: Props) {
