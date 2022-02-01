@@ -8,6 +8,7 @@ export interface PostData {
   id: string;
   date: string;
   title: string;
+  contentHtml: string;
 }
 
 export function getSortedPostsData(): PostData[] {
@@ -32,9 +33,9 @@ export function getSortedPostsData(): PostData[] {
     // Combine the data with the id
     return {
       id,
-      ...matterResult.data,
       date: matterResult.data.date,
       title: matterResult.data.title,
+      contentHtml: matterResult.data.content,
     };
   });
   // Sort posts by date
@@ -62,6 +63,7 @@ export function getPostData(id: string): PostData {
     ...matterResult.data,
     date: matterResult.data.date,
     title: matterResult.data.title,
+    contentHtml: matterResult.content,
   };
 }
 
