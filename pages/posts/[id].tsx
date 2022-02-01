@@ -14,6 +14,7 @@ interface Params extends ParsedUrlQuery {
   id: string;
 }
 
+// server側でbuild時に実行, pageのみ使用可能
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const paths = getAllPostIds();
   return {
@@ -22,16 +23,21 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   };
 };
 
+// pageをrenderingする時に必要なdataを先に取得, dataはpublicにキャッシュされる
+// server側でbuild時に実行されるため、query, headerは取得不可
 // P -> getStaticPropsの返り値の型, Q -> getStaticPropsの引数contextの内部の型
 export const getStaticProps: GetStaticProps<Props, Params> = async ({
   params,
 }) => {
+  // 外部apiをfetchする場合はここでリクエストする
   // Fetch necessary data for the blog post using params.id
   const postData = await getPostData(params!.id);
   return {
     props: {
       postData,
     },
+    // ISRすると生的サイトの更新が出来る
+    revalidate: 10, // seconds
   };
 };
 
