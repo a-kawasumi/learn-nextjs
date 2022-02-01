@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "./index.module.css";
 import utilStyles from "../../styles/utils.module.css";
 
-const name = "Your Name";
+const name = "My Name";
 export const siteTitle = "Next.js Sample Website";
 
 interface PageProps {
