@@ -7,6 +7,8 @@ import Layout, { siteTitle } from "../components/layout";
 import { getSortedPostsData, PostData } from "../lib/posts";
 import utilStyles from "../styles/utils.module.css";
 
+// SSGの場合getStaticProps. SSRはgetServerSidePropsを使う
+// clientでfetchする場合はSWR推奨
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
