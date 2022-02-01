@@ -8,7 +8,7 @@ export interface PostData {
   id: string;
   date: string;
   title: string;
-  contentHtml: string;
+  contentHtml: string | null;
 }
 
 export function getSortedPostsData(): PostData[] {
@@ -35,7 +35,7 @@ export function getSortedPostsData(): PostData[] {
       id,
       date: matterResult.data.date,
       title: matterResult.data.title,
-      contentHtml: matterResult.data.content,
+      contentHtml: matterResult.data.content ?? null,
     };
   });
   // Sort posts by date

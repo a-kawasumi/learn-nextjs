@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
@@ -6,21 +6,22 @@ import Link from "next/link";
 import Layout, { siteTitle } from "../components/layout";
 import { getSortedPostsData, PostData } from "../lib/posts";
 import utilStyles from "../styles/utils.module.css";
+import Date from "../components/date";
+
+interface Props {
+  allPostsData: PostData[];
+}
 
 // SSGの場合getStaticProps. SSRはgetServerSidePropsを使う
 // clientでfetchする場合はSWR推奨
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<Props> = () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
       allPostsData,
     },
   };
-}
-
-interface Props {
-  allPostsData: PostData[];
-}
+};
 
 const Home: NextPage<Props> = (props) => {
   const { allPostsData } = props;
@@ -41,11 +42,13 @@ const Home: NextPage<Props> = (props) => {
             <ul className={utilStyles.list}>
               {allPostsData.map(({ id, date, title }) => (
                 <li className={utilStyles.listItem} key={id}>
-                  {title}
+                  <Link href={`/posts/${id}`}>
+                    <a>{title}</a>
+                  </Link>
                   <br />
-                  {id}
-                  <br />
-                  {date}
+                  <small className={utilStyles.lightText}>
+                    <Date dateString={date} />
+                  </small>
                 </li>
               ))}
             </ul>
