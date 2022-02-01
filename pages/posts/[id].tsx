@@ -23,9 +23,11 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 };
 
 // P -> getStaticPropsの返り値の型, Q -> getStaticPropsの引数contextの内部の型
-export const getStaticProps: GetStaticProps<Props, Params> = ({ params }) => {
+export const getStaticProps: GetStaticProps<Props, Params> = async ({
+  params,
+}) => {
   // Fetch necessary data for the blog post using params.id
-  const postData = getPostData(params!.id);
+  const postData = await getPostData(params!.id);
   return {
     props: {
       postData,
