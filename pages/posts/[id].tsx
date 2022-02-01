@@ -2,6 +2,7 @@ import Layout from "../../components/layout";
 import { getAllPostIds, getPostData, PostData } from "../../lib/posts";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
+import Head from "next/head";
 
 interface Props {
   postData: PostData;
@@ -10,18 +11,6 @@ interface Props {
 interface Params extends ParsedUrlQuery {
   id: string;
 }
-
-const Post: React.VFC<Props> = ({ postData }) => {
-  return (
-    <Layout>
-      {postData.title}
-      <br />
-      {postData.id}
-      <br />
-      {postData.date}
-    </Layout>
-  );
-};
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const paths = getAllPostIds();
@@ -40,6 +29,21 @@ export const getStaticProps: GetStaticProps<Props, Params> = ({ params }) => {
       postData,
     },
   };
+};
+
+const Post: React.VFC<Props> = ({ postData }) => {
+  return (
+    <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
+      {postData.title}
+      <br />
+      {postData.id}
+      <br />
+      {postData.date}
+    </Layout>
+  );
 };
 
 export default Post;
