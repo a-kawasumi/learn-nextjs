@@ -12,7 +12,7 @@ const Profile: React.VFC = () => {
 
   return (
     <div>
-      <h1 className="text-red-600">{data.name}</h1>
+      <h1 className="text-xl text-red-600">{data.name}</h1>
       <p>{data.bio}</p>
     </div>
   );
