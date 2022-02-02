@@ -1,0 +1,11 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* utilitiesで定義しないとtailwindのhover:とかmd:とか使えない */
+/* @see https://tailwindcss.com/docs/functions-and-directives */
+@layer utilities {
+  .red {
+    color: red;
+  }
+}
