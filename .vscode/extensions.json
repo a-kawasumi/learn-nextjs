@@ -4,6 +4,7 @@
     "dbaeumer.vscode-eslint",
     "shardulm94.trailing-spaces",
     "stylelint.vscode-stylelint",
-    "jpoissonnier.vscode-styled-components"
+    "jpoissonnier.vscode-styled-components",
+    "csstools.postcss"
   ]
 }
