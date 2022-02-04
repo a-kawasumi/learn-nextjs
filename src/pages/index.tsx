@@ -67,6 +67,12 @@ const Home: NextPage<Props> = (props) => {
               <a>this page!</a>
             </Link>
           </h1>
+          {/* cypress test */}
+          <nav>
+            <Link href="/about">
+              <a>About page</a>
+            </Link>
+          </nav>
         </main>
 
         <footer className={styles.footer}>
